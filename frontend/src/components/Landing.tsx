@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { Appbar } from "./Appbar"
 import { useRecoilState } from "recoil"
 import { authAtom } from "../atoms"
@@ -35,7 +35,7 @@ const blogPosts = [
 ]
 
 export function Landing() {
-    const [user, setUser] = useRecoilState(authAtom);
+    const [, setUser] = useRecoilState(authAtom);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     useEffect(() => {

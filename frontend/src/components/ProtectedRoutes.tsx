@@ -1,9 +1,9 @@
 import axios from "axios";
 import { ReactNode, useEffect, useState } from "react";
 import { BACKEND_URL } from "../config";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { authAtom } from "../atoms";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { Spinner } from "./Spinner";
 
 interface ProtectedRoutesProps {

@@ -19,14 +19,26 @@ export const Appbar = () => {
                 navigate("/publish")
             }} type="button" className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br border font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-5">New</button>
             <div className="bg-slate-400 w-10 h-10 rounded-full grid place-content-center  text-md mr-3 font-bold">
-                {user.name[0] || 'A'}
+                {Object.entries(user).length > 0 ? user.name[0] : 'A'}
             </div>
-            <button onClick={() => {
-                localStorage.removeItem("token");
-                navigate("/signin")
-            }} className="border bg-slate-800 text-white px-5 py-2 rounded-md hover:bg-black hover:text-white">
-                Logout
-            </button>
+
+            {
+                Object.entries(user).length > 0 ? <button onClick={() => {
+                    localStorage.removeItem("token");
+                    navigate("/signin")
+                }} className="border bg-slate-800 text-white px-5 py-2 rounded-md hover:bg-black hover:text-white">
+                    Logout
+                </button> :
+                
+                <button onClick={() => {
+                    localStorage.removeItem("token");
+                    navigate("/signin")
+                }} className="border bg-slate-800 text-white px-5 py-2 rounded-md hover:bg-black hover:text-white">
+                    Signin
+                </button> 
+                
+            }
+
         </div>
     </div>
 }
